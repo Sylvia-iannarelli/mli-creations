@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MainColor{% endblock %}
+
+{% block body %}
+    <h1>MainColor</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mainColor.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ mainColor.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-dark" href="{{ path('app_mainColor_index') }}">back to list</a>
+
+    <a class="btn btn-outline-dark" href="{{ path('app_mainColor_edit', {'id': mainColor.id}) }}">edit</a>
+
+    {{ include('mainColor/_delete_form.html.twig') }}
+{% endblock %}

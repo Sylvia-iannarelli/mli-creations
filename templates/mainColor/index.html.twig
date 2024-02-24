@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MainColor index{% endblock %}
+
+{% block body %}
+    <h1>MainColor index</h1>
+
+    <table class="table table-info table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mainColor in mainColors %}
+            <tr>
+                <td>{{ mainColor.id }}</td>
+                <td>{{ mainColor.name }}</td>
+                <td>
+                    <a href="{{ path('app_mainColor_show', {'id': mainColor.id}) }}">show</a>
+                    <a href="{{ path('app_mainColor_edit', {'id': mainColor.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-dark" href="{{ path('app_mainColor_new') }}">Create new</a>
+{% endblock %}

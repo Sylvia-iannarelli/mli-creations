@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit MainColor{% endblock %}
+
+{% block body %}
+    <h1>Edit MainColor</h1>
+
+    {{ include('mainColor/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-outline-dark" href="{{ path('app_mainColor_index') }}">back to list</a>
+
+    {{ include('mainColor/_delete_form.html.twig') }}
+{% endblock %}
