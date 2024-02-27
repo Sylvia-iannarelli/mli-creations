@@ -6,6 +6,7 @@ use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -21,6 +22,7 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $name;
 
@@ -31,11 +33,13 @@ class Product
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank
      */
     private $price;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $delivery_time;
 
@@ -46,18 +50,21 @@ class Product
 
     /**
      * @ORM\ManyToMany(targetEntity=Material::class, mappedBy="Products")
+     * @Assert\NotBlank
      */
     private $materials;
 
     /**
      * @ORM\ManyToOne(targetEntity=Type::class, inversedBy="Products")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $type;
 
     /**
      * @ORM\ManyToOne(targetEntity=MainColor::class, inversedBy="Products")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $mainColor;
 
@@ -70,6 +77,11 @@ class Product
     {
         $this->materials = new ArrayCollection();
         $this->orderLines = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int

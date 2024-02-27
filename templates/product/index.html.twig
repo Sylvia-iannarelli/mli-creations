@@ -1,21 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product index{% endblock %}
+{% block title %}Produits{% endblock %}
 
 {% block body %}
-    <h1>Product index</h1>
+    <h1>Liste des produits</h1>
+
+    <a class="btn btn-outline-dark mb-3" href="{{ path('app_product_new') }}">Ajouter un produit</a>
 
     <table class="table table-success table-striped">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Picture</th>
-                <th>Price</th>
-                <th>Delivery_time</th>
-                <th>mainColor</th>
-                <th>Available</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th>Photo</th>
+                <th>Prix (TTC)</th>
+                <th>Type de bijou</th>
+                <th>Matériau(x)</th>
+                <th>Couleur principale</th>
+                <th>Délai de livraison (approximatif)</th>
+                <th>Disponible</th>
+                <th class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,23 +27,32 @@
             <tr>
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
-                <td>{{ product.picture }}</td>
+                <td>
+                    <img src="{{asset('/uploads/photos')}}/{{ product.picture }}" alt="Image du produit">
+                </td>
                 <td>{{ product.price }}</td>
-                <td>{{ product.deliveryTime }}</td>
+                <td>{{ product.type }}</td>
+                <td>
+                    {% for material in product.materials %}
+                        {{ material.name }}
+                    {% endfor %}
+                </td>
                 <td>{{ product.mainColor }}</td>
+                <td>{{ product.deliveryTime }}</td>
                 <td>{{ product.available ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                    <div class="justify-content-center d-flex flex-nowrap gap-3">
+                        <a class="btn btn-outline-dark"  href="{{ path('app_product_show', {'id': product.id}) }}">Afficher</a>
+                        <a class="btn btn-outline-dark" href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
+                    </div>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a class="btn btn-outline-dark" href="{{ path('app_product_new') }}">Create new</a>
 {% endblock %}

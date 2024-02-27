@@ -13,7 +13,6 @@ class MaterialType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('Products')
         ;
     }
 
