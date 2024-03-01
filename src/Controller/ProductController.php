@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Material;
 use App\Entity\Product;
 use App\Form\ProductType;
+use App\Repository\MaterialRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,13 +30,21 @@ class ProductController extends AbstractController
     /**
      * @Route("/new", name="app_product_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, ProductRepository $productRepository): Response
+    public function new(Request $request, ProductRepository $productRepository, MaterialRepository $materialRepository): Response
     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $materials = $form['materials']->getData();
+
+            // dd($materials);
+
+            foreach($materials as $material) {
+                $product->addMaterial($material);
+            };
             
             if ($photo = $form['photo']->getData()) {
                 $filename = md5(uniqid()).'.'.$photo->guessExtension();

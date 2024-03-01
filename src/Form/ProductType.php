@@ -35,7 +35,7 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('price', NumberType::class, [
-                'label' => 'Prix du produit TTC',
+                'label' => 'Prix du produit TTC (en €)',
                 'attr' => [
                     'placeholder' => 'Prix'
                 ]

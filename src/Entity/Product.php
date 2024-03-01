@@ -49,7 +49,7 @@ class Product
     private $available;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Material::class, mappedBy="Products")
+     * @ORM\ManyToMany(targetEntity=Material::class, inversedBy="Products")
      * @Assert\NotBlank
      */
     private $materials;
@@ -173,7 +173,6 @@ class Product
     {
         if (!$this->materials->contains($material)) {
             $this->materials[] = $material;
-            $material->addProduct($this);
         }
 
         return $this;
@@ -181,9 +180,7 @@ class Product
 
     public function removeMaterial(Material $material): self
     {
-        if ($this->materials->removeElement($material)) {
-            $material->removeProduct($this);
-        }
+        $this->materials->removeElement($material);
 
         return $this;
     }

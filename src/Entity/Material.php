@@ -25,13 +25,13 @@ class Material
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="materials")
+     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="materials")
      */
-    private $Products;
+    private $products;
 
     public function __construct()
     {
-        $this->Products = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function __toString()
@@ -61,13 +61,14 @@ class Material
      */
     public function getProducts(): Collection
     {
-        return $this->Products;
+        return $this->products;
     }
 
     public function addProduct(Product $product): self
     {
-        if (!$this->Products->contains($product)) {
-            $this->Products[] = $product;
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->addMaterial($this);
         }
 
         return $this;
@@ -75,7 +76,9 @@ class Material
 
     public function removeProduct(Product $product): self
     {
-        $this->Products->removeElement($product);
+        if ($this->products->removeElement($product)) {
+            $product->removeMaterial($this);
+        }
 
         return $this;
     }

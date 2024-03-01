@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <th>Prix (TTC)</th>
-                <td>{{ product.price }}</td>
+                <td>{{ product.price }} €</td>
             </tr>
             <tr>
                 <th>Délai de livraison (approximatif)</th>
@@ -36,6 +36,14 @@
             <tr>
                 <th>Disponible</th>
                 <td>{{ product.available ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Matériau(x)</th>
+                <td>
+                    {% for material in product.materials %}
+                        {{ material.name }}
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>
