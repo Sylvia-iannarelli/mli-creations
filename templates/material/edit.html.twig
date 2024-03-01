@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Material{% endblock %}
+{% block title %}Matériau{% endblock %}
 
 {% block body %}
-    <h1>Edit Material</h1>
+    <h1 class="text-light">Modifier le matériau</h1>
 
-    {{ include('material/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('material/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
 
-    <a class="btn btn-outline-dark" href="{{ path('app_material_index') }}">back to list</a>
+        <a class="btn btn-outline-light" href="{{ path('app_material_index') }}">Retour à la liste</a>
 
-    {{ include('material/_delete_form.html.twig') }}
+        {{ include('material/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

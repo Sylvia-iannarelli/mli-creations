@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New MainColor{% endblock %}
+{% block title %}Nouvelle couleur{% endblock %}
 
 {% block body %}
-    <h1>Create new MainColor</h1>
+    <h1 class="text-light">Ajouter une nouvelle couleur</h1>
 
     {{ include('mainColor/_form.html.twig') }}
 
-    <a class="btn btn-outline-dark" href="{{ path('app_mainColor_index') }}">back to list</a>
+        <a class="btn btn-outline-light" href="{{ path('app_mainColor_index') }}">Retour à la liste</a>
+    </div>
+       
 {% endblock %}

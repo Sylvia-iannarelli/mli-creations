@@ -1,7 +1,23 @@
 {{ form_start(form) }}
-        {{ form_widget(form) }}
+        {# {{ form_widget(form) }} #}
+
+        <div class="container row text-light">
+            <div class="col-md-6">
+                {{form_row(form.name)}}
+                {{form_row(form.photo)}}
+                {{form_row(form.price)}}
+                {{form_row(form.delivery_time)}}
+                {{form_row(form.type)}}
+                {{form_row(form.available)}}
+            </div>
+            <div class="col-md-6">
+                {{form_row(form.materials)}}
+                {{form_row(form.mainColor)}}
+            </div>
+        </div>
 
     <div class="justify-content-center d-flex flex-nowrap gap-3">
-        <button class="btn btn-outline-dark">{{ button_label|default('Enregistrer') }}</button>
+        <button class="btn btn-outline-light">{{ button_label|default('Enregistrer') }}</button>
         
 {{ form_end(form) }}
+

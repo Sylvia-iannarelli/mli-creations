@@ -73,6 +73,7 @@ class ProductType extends AbstractType
             ->add('available', CheckboxType::class, [
                 'label' => 'Disponibilité',
                 'required' => false,
+                'data' => true
             ])
         ;
     }

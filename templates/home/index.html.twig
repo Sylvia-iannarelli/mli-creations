@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}mli-creations{% endblock %}
+    {% block title %}mli-creations{% endblock %}
 
 {% block body %}
-        <h1 class="text-center my-5">mli-creations</h1>
-        <img src="" alt="">
+        <h1 class="text-center my-5 text-light">mli-creations</h1>
         <div class="d-flex justify-content-center gap-4">
             <a class="btn btn-success btn-lg" href="{{path('app_product_index')}}">Produits</a>
             <a class="btn btn-secondary btn-lg"  href="{{path('app_material_index')}}">Matériaux</a>
             <a class="btn btn-danger btn-lg" href="{{path('app_type_index')}}">Types</a>
             <a class="btn btn-info btn-lg" href="{{path('app_mainColor_index')}}">Couleurs principales</a>
+        </div>
+        <div class="text-center my-5">
+            <img class="rounded-5" src="{{asset('/uploads/Collier1.jpg')}}" alt="Un collier mli-creations">
         </div>
 {% endblock %}

@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}MainColor index{% endblock %}
+{% block title %}Couleurs principales{% endblock %}
 
 {% block body %}
-    <h1>MainColor index</h1>
+    <h1 class="text-light">Liste des couleurs principales</h1>
+
+    <a class="btn btn-outline-light mb-3" href="{{ path('app_mainColor_new') }}">Ajouter une couleur</a>
 
     <table class="table table-info table-striped">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,17 +21,18 @@
                 <td>{{ mainColor.id }}</td>
                 <td>{{ mainColor.name }}</td>
                 <td>
-                    <a href="{{ path('app_mainColor_show', {'id': mainColor.id}) }}">show</a>
-                    <a href="{{ path('app_mainColor_edit', {'id': mainColor.id}) }}">edit</a>
+                    <div class="justify-content-center d-flex flex-nowrap gap-3">
+                        <a class="btn btn-outline-dark" href="{{ path('app_mainColor_show', {'id': mainColor.id}) }}">Afficher</a>
+                        <a class="btn btn-outline-dark" href="{{ path('app_mainColor_edit', {'id': mainColor.id}) }}">Modifier</a>
+                        {{ include('mainColor/_delete_form.html.twig') }}
+                    </div>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a class="btn btn-outline-dark" href="{{ path('app_mainColor_new') }}">Create new</a>
 {% endblock %}
