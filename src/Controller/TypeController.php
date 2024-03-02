@@ -37,22 +37,12 @@ class TypeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $typeRepository->add($type, true);
 
-            return $this->redirectToRoute('app_type_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_type_new', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('type/new.html.twig', [
             'type' => $type,
             'form' => $form,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="app_type_show", methods={"GET"})
-     */
-    public function show(Type $type): Response
-    {
-        return $this->render('type/show.html.twig', [
-            'type' => $type,
         ]);
     }
 

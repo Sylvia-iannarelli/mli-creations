@@ -37,22 +37,12 @@ class MainColorController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $mainColorRepository->add($mainColor, true);
 
-            return $this->redirectToRoute('app_mainColor_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_mainColor_new', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('mainColor/new.html.twig', [
             'mainColor' => $mainColor,
             'form' => $form,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="app_mainColor_show", methods={"GET"})
-     */
-    public function show(MainColor $mainColor): Response
-    {
-        return $this->render('mainColor/show.html.twig', [
-            'mainColor' => $mainColor,
         ]);
     }
 

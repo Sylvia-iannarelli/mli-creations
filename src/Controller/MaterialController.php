@@ -37,22 +37,12 @@ class MaterialController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $materialRepository->add($material, true);
 
-            return $this->redirectToRoute('app_material_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_material_new', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('material/new.html.twig', [
             'material' => $material,
             'form' => $form,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="app_material_show", methods={"GET"})
-     */
-    public function show(Material $material): Response
-    {
-        return $this->render('material/show.html.twig', [
-            'material' => $material,
         ]);
     }
 

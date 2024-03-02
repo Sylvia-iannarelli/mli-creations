@@ -5,7 +5,7 @@
 {% block body %}
     <h1 class="text-light">Liste des types de bijou</h1>
 
-    <a class="btn btn-outline-light mb-3" href="{{ path('app_type_new') }}">Ajouter un type</a>
+    <a class="btn btn-outline-danger mb-3" href="{{ path('app_type_new') }}">Ajouter un type</a>
 
     <table class="table table-danger table-striped">
         <thead>
@@ -22,7 +22,6 @@
                 <td>{{ type.name }}</td>
                 <td>
                     <div class="justify-content-center d-flex flex-nowrap gap-3">
-                        <a class="btn btn-outline-dark" href="{{ path('app_type_show', {'id': type.id}) }}">Afficher</a>
                         <a class="btn btn-outline-dark" href="{{ path('app_type_edit', {'id': type.id}) }}">Modifier</a>
                         {{ include('type/_delete_form.html.twig') }}
                     </div>

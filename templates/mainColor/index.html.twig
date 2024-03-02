@@ -5,7 +5,7 @@
 {% block body %}
     <h1 class="text-light">Liste des couleurs principales</h1>
 
-    <a class="btn btn-outline-light mb-3" href="{{ path('app_mainColor_new') }}">Ajouter une couleur</a>
+    <a class="btn btn-outline-info mb-3" href="{{ path('app_mainColor_new') }}">Ajouter une couleur</a>
 
     <table class="table table-info table-striped">
         <thead>
@@ -22,7 +22,6 @@
                 <td>{{ mainColor.name }}</td>
                 <td>
                     <div class="justify-content-center d-flex flex-nowrap gap-3">
-                        <a class="btn btn-outline-dark" href="{{ path('app_mainColor_show', {'id': mainColor.id}) }}">Afficher</a>
                         <a class="btn btn-outline-dark" href="{{ path('app_mainColor_edit', {'id': mainColor.id}) }}">Modifier</a>
                         {{ include('mainColor/_delete_form.html.twig') }}
                     </div>

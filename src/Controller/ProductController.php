@@ -57,8 +57,11 @@ class ProductController extends AbstractController
 
             $productRepository->add($product, true);
 
-            return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
-        }
+            return $this->renderForm('product/show.html.twig', [
+                'product' => $product,
+                'form' => $form,
+            ]);
+            }
 
         return $this->renderForm('product/new.html.twig', [
             'product' => $product,
@@ -87,7 +90,10 @@ class ProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $productRepository->add($product, true);
 
-            return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+            return $this->renderForm('product/show.html.twig', [
+                'product' => $product,
+                'form' => $form,
+            ]);
         }
 
         return $this->renderForm('product/edit.html.twig', [

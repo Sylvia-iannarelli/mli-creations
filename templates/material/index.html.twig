@@ -5,7 +5,7 @@
 {% block body %}
     <h1 class="text-light">Liste des matériaux</h1>
 
-    <a class="btn btn-outline-light mb-3" href="{{ path('app_material_new') }}">Ajouter un matériau</a>
+    <a class="btn btn-outline-secondary mb-3" href="{{ path('app_material_new') }}">Ajouter un matériau</a>
 
     <table class="table table-secondary table-striped">
         <thead>
@@ -22,7 +22,6 @@
                 <td>{{ material.name }}</td>
                 <td>
                     <div class="justify-content-center d-flex flex-nowrap gap-3">
-                        <a class="btn btn-outline-dark" href="{{ path('app_material_show', {'id': material.id}) }}">Afficher</a>
                         <a class="btn btn-outline-dark" href="{{ path('app_material_edit', {'id': material.id}) }}">Modifier</a>
                         {{ include('material/_delete_form.html.twig') }}
                     </div>
