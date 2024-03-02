@@ -5,8 +5,8 @@
 {% block body %}
     <h1 class="text-light">Produit</h1>
 
-<div class="card mx-auto" style="max-width: 60%;">
-  <img style="width:50%" src="{{asset('/uploads/photos')}}/{{ product.picture }}" class="card-img-top mx-auto" alt="Image du produit">
+<div class="card mx-auto p-3" style="max-width: 60%;">
+  <img style="width:60%" src="{{asset('/uploads/photos')}}/{{ product.picture }}" class="card-img mx-auto" alt="Image du produit">
   <div class="card-body">
     <h4 class="card-title">{{ product.name }} - id : {{ product.id }}</h4>
     <p class="card-text">
@@ -14,26 +14,26 @@
     <ul class="list-group">
         <li class="list-group-item">
           Type : 
-          <span class="badge rounded-pill bg-info ms-1">{{ product.type }}</span> 
+          <span class="badge rounded-pill bg-info ms-1 text-dark" style="--bs-badge-font-size: 1em">{{ product.type }}</span> 
         </li>
         <li class="list-group-item">Matériau(x) : 
             {% for material in product.materials %}
-                <span class="badge rounded-pill bg-secondary ms-1">{{ material.name }}</span>
+                <span class="badge rounded-pill bg-secondary ms-1 mb-1 text-dark" style="--bs-badge-font-size: 1em">{{ material.name }}</span>
             {% endfor %}
         </li>
         <li class="list-group-item">
           Couleur principale : 
-          <span class="badge rounded-pill bg-danger ms-1">{{ product.mainColor }}</span> 
+          <span class="badge rounded-pill bg-danger ms-1 text-dark" style="--bs-badge-font-size: 1em">{{ product.mainColor }}</span> 
         </li>
         <li class="list-group-item">
           Prix (TTC) : 
-          <span class="text-dark ms-1">{{ product.price }} €</span>
+          <span class="text-dark fw-bold ms-1">{{ product.price }} €</span>
         </li>
         <li class="list-group-item">
           Délai de livraison : 
-          <span class="text-dark ms-1">{{ product.deliveryTime }}</span>
+          <span class="text-dark fw-bold ms-1">{{ product.deliveryTime }}</span>
         </li>
-        <li class="list-group-item text-dark text-center data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Tooltip on bottom">{{ product.available ? 'Disponible' : 'En rupture' }}</li>
+        <li class="list-group-item text-dark fw-bold data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Tooltip on bottom">{{ product.available ? 'Disponible' : 'En rupture' }}</li>
     </ul>
   </div>
   <div class="card-body">

@@ -5,9 +5,11 @@
 {% block body %}
     <h1 class="text-light">Ajouter un type de bijou</h1>
 
-    {{ include('type/_form.html.twig') }}
+    <div class="card mx-auto p-3" style="max-width: 100%;">
+        {{ include('type/_form.html.twig') }}
 
-        <a class="btn btn-outline-light" href="{{ path('app_type_index') }}">Retour à la liste</a>
+            <a class="btn btn-outline-dark" href="{{ path('app_type_index') }}">Retour à la liste</a>
+        </div>
     </div>
     
 {% endblock %}
