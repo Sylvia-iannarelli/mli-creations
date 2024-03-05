@@ -8,6 +8,8 @@ use App\Form\ProductType;
 use App\Repository\MaterialRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -89,6 +91,11 @@ class ProductController extends AbstractController
             $productRepository->add($product, true);
             
             if ($photo = $form['photo']->getData()) {
+
+                $filename = $this->getParameter('photo_dir').'/'.$product->getPicture();
+                $fileSystem = new Filesystem();
+                $fileSystem->remove($filename);
+                        
                 $filename = md5(uniqid()).'.'.$photo->guessExtension();
                 $photo->move(
                      $this->getParameter('photo_dir'),

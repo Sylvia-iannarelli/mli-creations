@@ -4,6 +4,12 @@
         <div class="container row">
             <div class="col-md-6">
                 {{form_row(form.name)}}
+
+                {% if app.request.attributes.get('_route') == 'app_product_edit' %}
+                    <h5 class="fs-6">Photo actuelle</h5>
+                    <img class="mb-2" style="width:100px" src="{{asset('/uploads/photos')}}/{{ product.picture }}" alt="Image du produit">
+                {% endif %}
+    
                 {{form_row(form.photo)}}
                 {{form_row(form.price)}}
                 {{form_row(form.delivery_time)}}
