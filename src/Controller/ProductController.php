@@ -40,8 +40,6 @@ class ProductController extends AbstractController
 
             $materials = $form['materials']->getData();
 
-            // dd($materials);
-
             foreach($materials as $material) {
                 $product->addMaterial($material);
             };
@@ -88,6 +86,17 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $productRepository->add($product, true);
+            
+            if ($photo = $form['photo']->getData()) {
+                $filename = md5(uniqid()).'.'.$photo->guessExtension();
+                $photo->move(
+                     $this->getParameter('photo_dir'),
+                     $filename
+                );
+                $product->setPicture($filename);
+            }
+
             $productRepository->add($product, true);
 
             return $this->renderForm('product/show.html.twig', [
