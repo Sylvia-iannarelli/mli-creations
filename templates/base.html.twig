@@ -18,7 +18,14 @@
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <a class="btn text-light border border-primary-subtle rounded-3 fw-bold position-absolute top-0 end-0" href="{{path('app_security_logout')}}">Déconnexion</a>
-            <p class="position-absolute top-5 end-0 pe-2">Connecté : {{ app.user.email }}</p>
+            <span class="position-absolute top-5 end-0 pe-2">Connecté : {{ app.user.email }}<br>Rôle : 
+                {% if "ROLE_ADMIN" in app.user.roles %}	
+                    Administrateur
+                {% elseif "ROLE_MANAGER" in app.user.roles %}	
+                    Manager
+                {% else %}	
+                    Membre
+                {% endif %}</span>
         {% else %}
             <a class="btn text-warning border border-warning-subtle rounded-3 fw-bold position-absolute top-0 end-0" href="{{path('app_security_login')}}">Connexion</a>
         {% endif %}
