@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/product")
+ * @Route("/back-office/product")
  */
 class ProductController extends AbstractController
 {
@@ -119,7 +119,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_product_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="app_product_delete", methods={"POST"})
      */
     public function delete(Request $request, Product $product, ProductRepository $productRepository): Response
     {

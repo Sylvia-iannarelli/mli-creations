@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/mainColor")
+ * @Route("/back-office/mainColor")
  */
 class MainColorController extends AbstractController
 {
@@ -67,7 +67,7 @@ class MainColorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_mainColor_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="app_mainColor_delete", methods={"POST"})
      */
     public function delete(Request $request, MainColor $mainColor, MainColorRepository $mainColorRepository): Response
     {

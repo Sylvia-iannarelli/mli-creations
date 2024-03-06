@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/type")
+ * @Route("/back-office/type")
  */
 class TypeController extends AbstractController
 {
@@ -67,7 +67,7 @@ class TypeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_type_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="app_type_delete", methods={"POST"})
      */
     public function delete(Request $request, Type $type, TypeRepository $typeRepository): Response
     {

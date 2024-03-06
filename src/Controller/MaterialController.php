@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/material")
+ * @Route("/back-office/material")
  */
 class MaterialController extends AbstractController
 {
@@ -67,7 +67,7 @@ class MaterialController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_material_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="app_material_delete", methods={"POST"})
      */
     public function delete(Request $request, Material $material, MaterialRepository $materialRepository): Response
     {

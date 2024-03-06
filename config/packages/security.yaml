@@ -37,11 +37,16 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/product, roles: ROLE_ADMIN }
-        - { path: ^/material, roles: ROLE_ADMIN }
-        - { path: ^/type, roles: ROLE_ADMIN }
-        - { path: ^/mainColor, roles: ROLE_ADMIN }
+        - { path: ^/back-office/user, roles: ROLE_ADMIN }
+        - { path: ^/back-office.*(delete), roles: ROLE_ADMIN }
+        - { path: ^/back-office.*(edit), roles: ROLE_MANAGER }
+        - { path: ^/back-office.*(show|new), roles: ROLE_USER }
+        - { path: ^/back-office, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_MANAGER
+        ROLE_MANAGER: ROLE_USER
 
 when@test:
     security:
