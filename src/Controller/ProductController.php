@@ -124,6 +124,9 @@ class ProductController extends AbstractController
     public function delete(Request $request, Product $product, ProductRepository $productRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
+                $filename = $product->getPicture();
+                $fileSystem = new Filesystem();
+                $fileSystem->remove($this->getParameter('photo_dir').'/'.$filename);
             $productRepository->remove($product, true);
         }
 
