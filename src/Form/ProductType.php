@@ -31,7 +31,7 @@ class ProductType extends AbstractType
                 'required' => false,
                 'mapped' => false,
                 'constraints' => [
-                    new Image(['maxSize' => '1024k'])
+                    new Image(['maxSize' => '356k'])
                 ]
             ])
             ->add('price', NumberType::class, [

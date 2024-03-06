@@ -40,7 +40,6 @@ security:
         - { path: ^/back-office/user, roles: ROLE_ADMIN }
         - { path: ^/back-office.*(delete), roles: ROLE_ADMIN }
         - { path: ^/back-office.*(edit), roles: ROLE_MANAGER }
-        - { path: ^/back-office.*(show|new), roles: ROLE_USER }
         - { path: ^/back-office, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }
 
