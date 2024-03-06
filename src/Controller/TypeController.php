@@ -67,7 +67,7 @@ class TypeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="app_type_delete", methods={"POST"})
+     * @Route("/{id}", name="app_type_delete", methods={"POST"})
      */
     public function delete(Request $request, Type $type, TypeRepository $typeRepository): Response
     {

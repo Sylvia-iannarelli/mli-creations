@@ -67,7 +67,7 @@ class MainColorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="app_mainColor_delete", methods={"POST"})
+     * @Route("/{id}", name="app_mainColor_delete", methods={"POST"})
      */
     public function delete(Request $request, MainColor $mainColor, MainColorRepository $mainColorRepository): Response
     {

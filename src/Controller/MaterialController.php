@@ -67,7 +67,7 @@ class MaterialController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="app_material_delete", methods={"POST"})
+     * @Route("/{id}", name="app_material_delete", methods={"POST"})
      */
     public function delete(Request $request, Material $material, MaterialRepository $materialRepository): Response
     {
