@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel utilisateur{% endblock %}
+
+{% block body %}
+    <h1 class="text-light">Ajouter un nouvel utilisateur</h1>
+
+    <div class="card mx-auto p-3" style="max-width: 100%;">
+        {{ include('user/_form.html.twig') }}
+
+            <a class="btn btn-outline-dark" href="{{ path('app_user_index') }}">Retour à la liste</a>
+        </div>
+    </div>
+
+{% endblock %}
