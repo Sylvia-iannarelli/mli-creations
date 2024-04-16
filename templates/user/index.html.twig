@@ -7,8 +7,8 @@
 
     <a class="btn btn-outline-warning mb-3" href="{{ path('app_user_new') }}">Ajouter un utilisateur</a>
 
-    <table class="table align-middle table-warning table-striped" style="--bs-table-color-type: #343a40; --bs-table-striped-color: #343a40;">
-        <thead>
+    <table class="table border border-warning align-middle table-striped" style="--bs-table-color-type: #ffce67; --bs-table-striped-color: #ffce67; --bs-table-bg: #161616; --bs-table-striped-bg: #191919;">
+        <thead class="table-warning" style="--bs-table-color-type: #191919;">
             <tr>
                 <th>Id</th>
                 <th>Email</th>
@@ -24,7 +24,7 @@
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>
                     <div class="justify-content-center d-flex flex-nowrap gap-3">
-                        <a class="btn btn-outline-dark" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+                        <a class="btn btn-outline-warning" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
                         {{ include('user/_delete_form.html.twig') }}
                     </div>
                 </td>

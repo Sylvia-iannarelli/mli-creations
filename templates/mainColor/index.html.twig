@@ -7,8 +7,8 @@
 
     <a class="btn btn-outline-info mb-3" href="{{ path('app_mainColor_new') }}">Ajouter une couleur</a>
 
-    <table class="table align-middle table-info table-striped" style="--bs-table-color-type: #343a40; --bs-table-striped-color: #343a40;">
-        <thead>
+    <table class="table border border-info align-middle table-striped" style="--bs-table-color-type: #6cc3d5; --bs-table-striped-color: #6cc3d5; --bs-table-bg: #161616; --bs-table-striped-bg: #191919;">
+        <thead class="table-info" style="--bs-table-color-type: #191919;">
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
@@ -22,7 +22,7 @@
                 <td>{{ mainColor.name }}</td>
                 <td>
                     <div class="justify-content-center d-flex flex-nowrap gap-3">
-                        <a class="btn btn-outline-dark" href="{{ path('app_mainColor_edit', {'id': mainColor.id}) }}">Modifier</a>
+                        <a class="btn btn-outline-info" href="{{ path('app_mainColor_edit', {'id': mainColor.id}) }}">Modifier</a>
                         {{ include('mainColor/_delete_form.html.twig') }}
                     </div>
                 </td>

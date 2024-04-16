@@ -14,16 +14,16 @@
     <ul class="list-group">
         <li class="list-group-item">
           Type : 
-          <span class="badge rounded-pill bg-info ms-1 text-dark" style="--bs-badge-font-size: 1em">{{ product.type }}</span> 
+          <span class="badge rounded-pill bg-danger ms-1 text-dark" style="--bs-badge-font-size: 1em">{{ product.type }}</span> 
+        </li>
+        <li class="list-group-item">
+          Couleur principale : 
+          <span class="badge rounded-pill bg-info ms-1 text-dark" style="--bs-badge-font-size: 1em">{{ product.mainColor }}</span> 
         </li>
         <li class="list-group-item">Matériau(x) : 
             {% for material in product.materials %}
                 <span class="badge rounded-pill bg-secondary ms-1 mb-1 text-dark" style="--bs-badge-font-size: 1em">{{ material.name }}</span>
             {% endfor %}
-        </li>
-        <li class="list-group-item">
-          Couleur principale : 
-          <span class="badge rounded-pill bg-danger ms-1 text-dark" style="--bs-badge-font-size: 1em">{{ product.mainColor }}</span> 
         </li>
         <li class="list-group-item">
           Prix (TTC) : 
@@ -38,9 +38,9 @@
   </div>
   <div class="card-body">
     <div class="justify-content-center d-flex flex-nowrap gap-3">
-        <a class="btn btn-outline-dark" href="{{ path('app_product_index') }}">Retour à la liste</a>
+        <a class="btn btn-outline-dark rounded-3" href="{{ path('app_product_index') }}">Retour à la liste</a>
 
-        <a class="btn btn-outline-dark" href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
+        <a class="btn btn-outline-dark rounded-3" href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
 
         {{ include('product/_delete_form.html.twig') }}
     </div>    

@@ -5,10 +5,10 @@
 {% block body %}
     <h1 class="text-light">Liste des matériaux</h1>
 
-    <a class="btn btn-outline-secondary mb-3" href="{{ path('app_material_new') }}">Ajouter un matériau</a>
+    <a class="btn btn-outline-secondary rounded-3 mb-3" href="{{ path('app_material_new') }}">Ajouter un matériau</a>
 
-    <table class="table align-middle table-secondary table-striped" style="--bs-table-color-type: #343a40; --bs-table-striped-color: #343a40;">
-        <thead>
+    <table class="table border border-secondary align-middle table-striped" style="--bs-table-color-type: #f3969a; --bs-table-striped-color: #f3969a; --bs-table-bg: #161616; --bs-table-striped-bg: #191919;">
+        <thead class="table-secondary" style="--bs-table-color-type: #191919;">
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
@@ -22,7 +22,7 @@
                 <td>{{ material.name }}</td>
                 <td>
                     <div class="justify-content-center d-flex flex-nowrap gap-3">
-                        <a class="btn btn-outline-dark" href="{{ path('app_material_edit', {'id': material.id}) }}">Modifier</a>
+                        <a class="btn btn-outline-secondary rounded-3" href="{{ path('app_material_edit', {'id': material.id}) }}">Modifier</a>
                         {{ include('material/_delete_form.html.twig') }}
                     </div>
                 </td>

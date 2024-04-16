@@ -5,10 +5,10 @@
 {% block body %}
     <h1 class="text-light">Liste des produits</h1>
 
-    <a class="btn btn-outline-success mb-3" href="{{ path('app_product_new') }}">Ajouter un produit</a>
+    <a class="btn btn-outline-success rounded-3 mb-3" href="{{ path('app_product_new') }}">Ajouter un produit</a>
 
-    <table class="table align-middle table-success table-striped" style="--bs-table-color-type: #343a40; --bs-table-striped-color: #343a40;">
-        <thead>
+    <table class="table table-fluid border border-success align-middle table-striped" style="--bs-table-color-type: #56cc9d; --bs-table-striped-color: #56cc9d; --bs-table-bg: #161616; --bs-table-striped-bg: #191919;">
+        <thead class="table-success"  style="--bs-table-color-type: #191919;">
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
@@ -42,8 +42,8 @@
                 <td>{{ product.available ? 'Yes' : 'No' }}</td>
                 <td>
                     <div class="justify-content-center d-flex flex-nowrap gap-3">
-                        <a class="btn btn-outline-dark" href="{{ path('app_product_show', {'id': product.id}) }}">Afficher</a>
-                        <a class="btn btn-outline-dark" href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
+                        <a class="btn btn-outline-success rounded-3" href="{{ path('app_product_show', {'id': product.id}) }}">Afficher</a>
+                        <a class="btn btn-outline-success rounded-3" href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
                         {{ include('product/_delete_form.html.twig') }}
                     </div>
                 </td>
@@ -55,5 +55,4 @@
         {% endfor %}
         </tbody>
     </table>
-
 {% endblock %}

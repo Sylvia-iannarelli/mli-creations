@@ -19,9 +19,9 @@
     </table>
 
     <div class="justify-content-center d-flex flex-nowrap gap-3">
-        <a class="btn btn-outline-dark" href="{{ path('app_material_index') }}">Retour à la liste</a>
+        <a class="btn btn-outline-dark rounded-3" href="{{ path('app_material_index') }}">Retour à la liste</a>
 
-        <a class="btn btn-outline-dark" href="{{ path('app_material_edit', {'id': material.id}) }}">Modifier</a>
+        <a class="btn btn-outline-dark rounded-3" href="{{ path('app_material_edit', {'id': material.id}) }}">Modifier</a>
 
         {{ include('material/_delete_form.html.twig') }}
     </div>    

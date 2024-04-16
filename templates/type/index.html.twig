@@ -5,10 +5,10 @@
 {% block body %}
     <h1 class="text-light">Liste des types de bijou</h1>
 
-    <a class="btn btn-outline-danger mb-3" href="{{ path('app_type_new') }}">Ajouter un type</a>
+    <a class="btn btn-outline-danger rounded-3 mb-3" href="{{ path('app_type_new') }}">Ajouter un type</a>
 
-    <table class="table align-middle table-danger table-striped" style="--bs-table-color-type: #343a40; --bs-table-striped-color: #343a40;">
-        <thead>
+    <table class="table border border-danger align-middle table-striped" style="--bs-table-color-type: #ff7851; --bs-table-striped-color: #ff7851; --bs-table-bg: #161616; --bs-table-striped-bg: #191919;">
+        <thead class="table-danger" style="--bs-table-color-type: #191919;">
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
@@ -22,7 +22,7 @@
                 <td>{{ type.name }}</td>
                 <td>
                     <div class="justify-content-center d-flex flex-nowrap gap-3">
-                        <a class="btn btn-outline-dark" href="{{ path('app_type_edit', {'id': type.id}) }}">Modifier</a>
+                        <a class="btn btn-outline-danger rounded-3" href="{{ path('app_type_edit', {'id': type.id}) }}">Modifier</a>
                         {{ include('type/_delete_form.html.twig') }}
                     </div>
                 </td>
