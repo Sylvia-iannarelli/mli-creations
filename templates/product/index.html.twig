@@ -13,10 +13,10 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Photo</th>
-                <th>Prix (TTC)</th>
+                <th>Prix (en € TTC)</th>
                 <th>Type de bijou</th>
-                <th>Matériau(x)</th>
                 <th>Couleur principale</th>
+                <th>Matériau(x)</th>
                 <th>Délai de livraison (approximatif)</th>
                 <th>Disponible</th>
                 <th class="text-center">Actions</th>
@@ -32,12 +32,12 @@
                 </td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.type }}</td>
+                <td>{{ product.mainColor }}</td>
                 <td>
                     {% for material in product.materials %}
                         {{ material.name }}
                     {% endfor %}
                 </td>
-                <td>{{ product.mainColor }}</td>
                 <td>{{ product.deliveryTime }}</td>
                 <td>{{ product.available ? 'Yes' : 'No' }}</td>
                 <td>
