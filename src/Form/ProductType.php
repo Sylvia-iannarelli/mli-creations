@@ -32,7 +32,8 @@ class ProductType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new Image(['maxSize' => '356k'])
-                ]
+                ],
+                "help" => "* Taille maximum : 356 kB"
             ])
             ->add('price', NumberType::class, [
                 'label' => 'Prix du produit TTC (en €)',
@@ -41,28 +42,28 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('type', EntityType::class, [
-                "label" => "Type*",
+                "label" => "Type**",
                 "class" => Type::class,
                 "multiple" => false,
                 "expanded" => true,
                 "choice_label" => "name",
-                "help" => "* une seule réponse possible"
-            ])
-            ->add('materials', EntityType::class, [
-                "label" => "Matériaux**",
-                "class" => Material::class,
-                "multiple" => true,
-                "expanded" => true,
-                "choice_label" => "name",
-                "help" => "** plusieurs réponses possibles"
+                "help" => "** une seule réponse possible"
             ])
             ->add('mainColor', EntityType::class, [
-                "label" => "Couleur principale*",
+                "label" => "Couleur principale**",
                 "class" => MainColor::class,
                 "multiple" => false,
                 "expanded" => true,
                 "choice_label" => "name",
-                "help" => "* une seule réponse possible"
+                "help" => "** une seule réponse possible"
+            ])
+            ->add('materials', EntityType::class, [
+                "label" => "Matériaux***",
+                "class" => Material::class,
+                "multiple" => true,
+                "expanded" => true,
+                "choice_label" => "name",
+                "help" => "*** plusieurs réponses possibles"
             ])
             ->add('delivery_time', TextType::class, [
                 'label' => 'Délais de livraison approximatifs',
