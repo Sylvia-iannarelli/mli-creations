@@ -4,3 +4,5 @@
 - Service mailing
 - Subscriber pour maintenance
 - Reset du password
+- Routes API
+- JWT & CORS
