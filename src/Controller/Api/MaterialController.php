@@ -11,9 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class MaterialController extends AbstractController
 {
     /**
-     * @Route("/api/materials", name="app_api_material_index", methods={"GET"})
+     * @Route("/api/materials", name="app_api_material_getMaterials", methods={"GET"})
      */
-    public function index(MaterialRepository $materialRepository): JsonResponse
+    public function getMaterials(MaterialRepository $materialRepository): JsonResponse
     {
         $materials = $materialRepository->findAll();
 

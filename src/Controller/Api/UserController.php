@@ -11,9 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/api/users", name="app_api_user_index", methods={"GET"})
+     * @Route("/api/users", name="app_api_user_getUsers", methods={"GET"})
      */
-    public function index(UserRepository $userRepository): JsonResponse
+    public function getUsers(UserRepository $userRepository): JsonResponse
     {
         $users = $userRepository->findAll();
 

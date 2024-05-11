@@ -2,6 +2,7 @@
 
 namespace App\Controller\Api;
 
+use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -11,9 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/api/products", name="app_api_product_index", methods={"GET"})
+     * @Route("/api/products", name="app_api_product_getProducts", methods={"GET"})
      */
-    public function index(ProductRepository $productRepository): JsonResponse
+    public function getProducts(ProductRepository $productRepository): JsonResponse
     {
         $products = $productRepository->findAll();
 

@@ -11,9 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class TypeController extends AbstractController
 {
     /**
-     * @Route("/api/types", name="app_api_type_index", methods={"GET"})
+     * @Route("/api/types", name="app_api_type_getTypes", methods={"GET"})
      */
-    public function index(TypeRepository $typeRepository): JsonResponse
+    public function getTypes(TypeRepository $typeRepository): JsonResponse
     {
         $types = $typeRepository->findAll();
 

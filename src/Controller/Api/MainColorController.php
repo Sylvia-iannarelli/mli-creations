@@ -11,9 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainColorController extends AbstractController
 {
     /**
-     * @Route("/api/maincolors", name="app_api_maincolor_index", methods={"GET"})
+     * @Route("/api/maincolors", name="app_api_maincolor_getMainColors", methods={"GET"})
      */
-    public function index(MainColorRepository $mainColorRepository): JsonResponse
+    public function getMainColors(MainColorRepository $mainColorRepository): JsonResponse
     {
         $mainColors = $mainColorRepository->findAll();
 
