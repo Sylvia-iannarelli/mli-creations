@@ -7,16 +7,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class UserController extends AbstractController
 {
     /**
      * @Route("/api/users", name="app_api_user_getUsers", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function getUsers(UserRepository $userRepository): JsonResponse
     {
-        $users = $userRepository->findAll();
+        // $users = $userRepository->findAll();
 
-        return $this->json($users, Response::HTTP_OK, [], ["groups" => "user_index"]);
+        // return $this->json($users, Response::HTTP_OK, [], ["groups" => "user_index"]);
     }
 }
