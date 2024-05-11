@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -17,40 +18,47 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"product_index"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"product_index"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"product_index"})
      */
     private $picture;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank
+     * @Groups({"product_index"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @Groups({"product_index"})
      */
     private $delivery_time;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"product_index"})
      */
     private $available;
 
     /**
      * @ORM\ManyToMany(targetEntity=Material::class, inversedBy="Products")
      * @Assert\NotBlank
+     * @Groups({"product_index"})
      */
     private $materials;
 
@@ -58,6 +66,7 @@ class Product
      * @ORM\ManyToOne(targetEntity=Type::class, inversedBy="Products")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Groups({"product_index"})
      */
     private $type;
 
@@ -65,6 +74,7 @@ class Product
      * @ORM\ManyToOne(targetEntity=MainColor::class, inversedBy="Products")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
+     * @Groups({"product_index"})
      */
     private $mainColor;
 
