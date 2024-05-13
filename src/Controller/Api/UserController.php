@@ -11,14 +11,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class UserController extends AbstractController
 {
-    // /**
-    //  * @Route("/api/users", name="app_api_user_getUsers", methods={"GET"})
-    //  * @IsGranted("ROLE_ADMIN")
-    //  */
-    // public function getUsers(UserRepository $userRepository): JsonResponse
-    // {
-    //     $users = $userRepository->findAll();
+    /**
+     * @Route("/api/users", name="app_api_user_getUsers", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function getUsers(UserRepository $userRepository): JsonResponse
+    {
+        // $users = $userRepository->findAll();
+        $users = "";
 
-    //     return $this->json($users, Response::HTTP_OK, [], ["groups" => "user_index"]);
-    // }
+        return $this->json($users, Response::HTTP_OK, [], ["groups" => "user_index"]);
+    }
 }
