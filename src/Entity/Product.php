@@ -93,7 +93,7 @@ class Product
      * @ORM\Column(type="text", nullable=true)
      * @Groups({"product_index"})
      */
-    private $Description;
+    private $description;
 
     public function __construct()
     {
@@ -263,12 +263,12 @@ class Product
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(?string $Description): self
+    public function setDescription(?string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
