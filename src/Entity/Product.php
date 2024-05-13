@@ -88,6 +88,11 @@ class Product
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $Description;
+
     public function __construct()
     {
         $this->materials = new ArrayCollection();
@@ -250,6 +255,18 @@ class Product
     public function setStatus(?string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(?string $Description): self
+    {
+        $this->Description = $Description;
 
         return $this;
     }

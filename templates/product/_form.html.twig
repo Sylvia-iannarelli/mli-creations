@@ -2,7 +2,7 @@
         {# {{ form_widget(form) }} #}
 
         <div class="container row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 {{form_row(form.name)}}
 
                 {% if app.request.attributes.get('_route') == 'app_product_edit' %}
@@ -13,12 +13,15 @@
                 {{form_row(form.photo)}}
                 {{form_row(form.price)}}
                 {{form_row(form.delivery_time)}}
-                {{form_row(form.type)}}
+                {{form_row(form.description)}}
                 {{form_row(form.available)}}
             </div>
-            <div class="col-md-6">
-                {{form_row(form.mainColor)}}
+            <div class="col-md-4">
+                {{form_row(form.type)}}
                 {{form_row(form.materials)}}
+            </div>
+            <div class="col-md-4">
+                {{form_row(form.mainColor)}}
                 {{form_row(form.status)}}
             </div>
         </div>
