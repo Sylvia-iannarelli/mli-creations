@@ -85,11 +85,13 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"product_index"})
      */
     private $status;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"product_index"})
      */
     private $Description;
 
