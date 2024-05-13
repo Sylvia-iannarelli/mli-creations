@@ -19,6 +19,7 @@
                 <th>Matériau(x)</th>
                 <th>Délai de livraison (approximatif)</th>
                 <th>Disponible</th>
+                <th>Statut</th>
                 <th class="text-center">Actions</th>
             </tr>
         </thead>
@@ -40,6 +41,7 @@
                 </td>
                 <td>{{ product.deliveryTime }}</td>
                 <td>{{ product.available ? 'Yes' : 'No' }}</td>
+                <td>{{ product.status }}</td>
                 <td>
                     <div class="justify-content-center d-flex flex-nowrap gap-3">
                         <a class="btn btn-outline-success rounded-3" href="{{ path('app_product_show', {'id': product.id}) }}">Afficher</a>
@@ -50,7 +52,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="9">Aucun enregistrement trouvé</td>
+                <td colspan="10">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

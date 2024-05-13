@@ -9,6 +9,7 @@ use App\Entity\Type;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -73,6 +74,15 @@ class ProductType extends AbstractType
             ])
             ->add('available', CheckboxType::class, [
                 'label' => 'Disponibilité',
+                'required' => false
+            ])
+            ->add('status', ChoiceType::class, [
+                'label' => 'Statut',
+                'choices' => [
+                    "Nouvelle collection" => "nouvelle-collection",
+                    "Coups de cœur" => "coups-de-cœur"
+                ],
+                'expanded' => true,
                 'required' => false
             ])
         ;
