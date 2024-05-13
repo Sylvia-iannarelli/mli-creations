@@ -90,7 +90,8 @@ class ProductType extends AbstractType
                 "label" => "Description",
                 "attr" => [
                     "placeholder" => "Description détaillée du bijou"
-                ]
+                ],
+                'required' => false
             ])
         ;
     }
