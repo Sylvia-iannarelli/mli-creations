@@ -20,7 +20,7 @@
 ###< symfony/phpunit-bridge ###
 
 ###> uploads/photos ###
-/public/uploads
+/public/uploads/photos
 ###< symfony/phpunit-bridge ###
 
 ###> lexik/jwt-authentication-bundle ###
