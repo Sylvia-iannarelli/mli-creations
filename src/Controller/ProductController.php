@@ -49,8 +49,8 @@ class ProductController extends AbstractController
             if ($photo = $form['photo']->getData()) {
                 $filename = md5(uniqid()).'.'.$photo->guessExtension();
                 $photo->move(
-                     $this->getParameter('photo_dir'),
-                     $filename
+                    $this->getParameter('photo_dir'),
+                    $filename
                 );
                 $product->setPicture($filename);
             }
@@ -90,16 +90,25 @@ class ProductController extends AbstractController
             
             if ($photo = $form['photo']->getData()) {
 
-                $filename = $this->getParameter('photo_dir').'/'.$product->getPicture();
-                $fileSystem = new Filesystem();
-                $fileSystem->remove($filename);
-                        
-                $filename = md5(uniqid()).'.'.$photo->guessExtension();
-                $photo->move(
-                     $this->getParameter('photo_dir'),
-                     $filename
-                );
-                $product->setPicture($filename);
+                if ($product->getPicture()) {
+                    $filename = $this->getParameter('photo_dir').'/'.$product->getPicture();
+                    $fileSystem = new Filesystem();
+                    $fileSystem->remove($filename);
+                            
+                    $filename = md5(uniqid()).'.'.$photo->guessExtension();
+                    $photo->move(
+                         $this->getParameter('photo_dir'),
+                         $filename
+                    );
+                    $product->setPicture($filename);
+                } else {
+                    $filename = md5(uniqid()).'.'.$photo->guessExtension();
+                    $photo->move(
+                         $this->getParameter('photo_dir'),
+                         $filename
+                    );
+                    $product->setPicture($filename);
+                }
             }
 
             $productRepository->add($product, true);
@@ -120,10 +129,14 @@ class ProductController extends AbstractController
     public function delete(Request $request, Product $product, ProductRepository $productRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
-            $filename = $this->getParameter('photo_dir').'/'.$product->getPicture();
-            $fileSystem = new Filesystem();
-            $fileSystem->remove($filename);
-            $productRepository->remove($product, true);
+            if ($product->getPicture()) {
+                $filename = $product->getPicture();
+                $fileSystem = new Filesystem();
+                $fileSystem->remove($this->getParameter('photo_dir').'/'.$filename);
+                $productRepository->remove($product, true);
+            } else {
+                $productRepository->remove($product, true);
+            }
         }
 
         return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
