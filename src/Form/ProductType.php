@@ -30,7 +30,6 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('photo', FileType::class, [
-                'required' => false,
                 'mapped' => false,
                 'constraints' => [
                     new Image(['maxSize' => '356k'])
