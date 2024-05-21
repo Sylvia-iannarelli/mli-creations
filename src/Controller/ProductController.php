@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Material;
 use App\Entity\Product;
 use App\Form\ProductType;
+use App\Form\ProductTypeEdit;
 use App\Repository\MaterialRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -82,7 +83,7 @@ class ProductController extends AbstractController
      */
     public function edit(Request $request, Product $product, ProductRepository $productRepository): Response
     {
-        $form = $this->createForm(ProductType::class, $product);
+        $form = $this->createForm(ProductTypeEdit::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

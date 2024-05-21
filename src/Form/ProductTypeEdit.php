@@ -18,7 +18,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Image;
 
-class ProductType extends AbstractType
+class ProductTypeEdit extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -30,8 +30,8 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('photo', FileType::class, [
-                'label' => 'Photo',
-                'required' => true,
+                'label' => 'Changer la photo',
+                'required' => false,
                 'mapped' => false,
                 'constraints' => [
                     new Image(['maxSize' => '356k'])
